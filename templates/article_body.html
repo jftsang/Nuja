@@ -1,20 +1,23 @@
 <div class="row">
 {%if articles_page %}
     <div class="span1 metadata alpha">
-{# Entry Date #}
-	<aside>
-	    <div class="entry-date">
-		<div class="month-day">
-		    <time pubdate datetime="{{ article.date.isoformat() }}" title="{{ article.date|strftime('%b %d, %y')}}">
-			{{ article.date|strftime('%b')}}.<span class="day">{{ article.date|strftime('%d')}}</span>
-			<div class="year">{{ article.date|strftime('%y')}}</div>
-		    </time>
-		</div>
+        {# Entry Date #}
+        <aside>
+            <div class="entry-date">
+                <div class="month-day">
+                    <time pubdate
+                     datetime="{{ article.date.isoformat() }}"
+                     title="{{ article.date|strftime('%d %B, %Y')}}">
+                        <span class="day">{{ article.date|strftime('%d')}}</span>
+                        {{ article.date|strftime('%B')}}
+                        <div class="year">{{ article.date|strftime('%Y')}}</div>
+                    </time>
+                </div>
 
-	    </div>
+            </div>
 
-	</aside> 
-{# End of Date #}
+        </aside>
+        {# End of Date #}
 
     </div>
     {%endif%}

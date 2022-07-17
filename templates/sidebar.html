@@ -1,28 +1,33 @@
 <!-- Sidebar -->
 <aside class="span3 {%if articles_page%}remove-bs-margin{%endif%} hidden-phone hidden-tablet">
 
+    {%if pages %}
     <div class="widget-external-links widget">
-	<h3 class="widget-header">External Links</h3>
-	<div class="widget-content">
-	    <ul class="widget-list">
-		{%if LINKS %}
-		{% for name, link in LINKS %}
-		<li class="widget-list-item"><a href="{{ link }}">{{name}}</a></li>{%endfor%} {%endif%}
-	    </ul>
-	</div>
-    </div>
-		{%if articles %}
-    <div class="widget-external-links widget">
-        <h3 class="widget-header">Recent Articles</h3>
-	<div class="widget-content">
-	    <ul class="widget-list">
-		{%for article in articles[:10] %}
-		<li class="widget-list-item"><a href="{{SITEURL}}/{{article.url}}" title="Read: {{article.title|striptags}}">{{article.title}}</a></li>
-		{%endfor%}
-	    </ul>
-	</div>
+        <h3 class="widget-header">Pages</h3>
+        <div class="widget-content">
+            <ul class="widget-list">
+                {%for article in pages[:10] %}
+                <li class="widget-list-item"><a href="{{SITEURL}}/{{article.url}}" title="Read: {{article.title|striptags}}">{{article.title}}</a></li>
+                {%endfor%}
+            </ul>
+        </div>
     </div>
     {%endif%}
+
+
+    {%if articles %}
+    <div class="widget-external-links widget">
+        <h3 class="widget-header">Recent Articles</h3>
+        <div class="widget-content">
+            <ul class="widget-list">
+                {%for article in articles[:10] %}
+                <li class="widget-list-item"><a href="{{SITEURL}}/{{article.url}}" title="Read: {{article.title|striptags}}">{{article.title}}</a></li>
+                {%endfor%}
+            </ul>
+        </div>
+    </div>
+    {%endif%}
+
     <div class="widget-archive-category widget">
 	<h3 class="widget-header">Category</h3>
 	<div class="widget-content">
@@ -34,9 +39,28 @@
 	    </ul>
 	</div>
     </div>
+
+
+    <div class="widget-external-links widget">
+        <h3 class="widget-header">External Links</h3>
+        <div class="widget-content">
+            <ul class="widget-list">
+
+                {%if LINKS %}
+                {% for name, link in LINKS %}
+                <li class="widget-list-item"><a href="{{ link }}">{{name}}</a></li>
+                {%endfor%}
+                {%endif%}
+
+            </ul>
+        </div>
+    </div>
+
+
+    <!--
     <div class="widget">
 	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<!-- dgzen he -->
+	!-- dgzen he --
 	<ins class="adsbygoogle"
 	    style="display:inline-block;width:300px;height:600px"
 	    data-ad-client="ca-pub-4442880234515975"
@@ -45,6 +69,7 @@
 	    (adsbygoogle = window.adsbygoogle || []).push({});
 	</script>
     </script>
+    -->
 </div>
 		</aside>
 
